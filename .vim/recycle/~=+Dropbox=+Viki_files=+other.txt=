@@ -1,0 +1,157 @@
+let s:so_save = &so | let s:siso_save = &siso | set so=0 siso=0
+argglobal
+let s:cpo_save=&cpo
+set cpo&vim
+inoremap <buffer> <silent> <M-RightMouse> <LeftMouse>:call viki#GoBack(0)
+inoremap <buffer> <silent> <M-LeftMouse> <LeftMouse>:call viki#MaybeFollowLink(0,1)
+inoremap <buffer> <silent> <C-CR> :call viki#MaybeFollowLink(0,1)
+nnoremap <buffer> \vX :VikiFilesExec! 
+nnoremap <buffer> \vx :VikiFilesExec 
+nnoremap <buffer> <silent> \vU :VikiFilesUpdateAll
+nnoremap <buffer> <silent> \vu :VikiFilesUpdate
+nmap <buffer> <silent> \vF \vn\vf
+nnoremap <buffer> <silent> \vN :VikiFindPrev
+nnoremap <buffer> <silent> \vn :VikiFindNext
+nnoremap <buffer> <silent> \v<Left> :call viki#GoBack()
+nnoremap <buffer> <silent> \vb :call viki#GoBack()
+nnoremap <buffer> <silent> \v<Up> :call viki#GoParent()
+nnoremap <buffer> <silent> \v<BS> :call viki#GoParent()
+noremap <buffer> \ve :VikiEdit 
+noremap <buffer> <silent> \vp :call viki#MarkInexistentInElement("Paragraph")
+noremap <buffer> <silent> \vd :call viki#MarkInexistentInElement("Document")
+nnoremap <buffer> <silent> \vt :call viki#MaybeFollowLink(0,1,"tab")
+nnoremap <buffer> <silent> \v4 :call viki#MaybeFollowLink(0,1,4)
+nnoremap <buffer> <silent> \v3 :call viki#MaybeFollowLink(0,1,3)
+nnoremap <buffer> <silent> \v2 :call viki#MaybeFollowLink(0,1,2)
+nnoremap <buffer> <silent> \v1 :call viki#MaybeFollowLink(0,1,1)
+nnoremap <buffer> <silent> \vv :call viki#MaybeFollowLink(0,1,-2)
+nnoremap <buffer> <silent> \vs :call viki#MaybeFollowLink(0,1,-1)
+nnoremap <buffer> <silent> \vf :call viki#MaybeFollowLink(0,1)
+nnoremap <buffer> <silent> <C-S-Tab> :VikiFindPrev
+nnoremap <buffer> <silent> <C-Tab> :VikiFindNext
+nnoremap <buffer> <silent> <M-RightMouse> <LeftMouse>:call viki#GoBack(0)
+nnoremap <buffer> <silent> <M-LeftMouse> <LeftMouse>:call viki#MaybeFollowLink(0,1)
+nnoremap <buffer> <silent> <C-CR> :call viki#MaybeFollowLink(0,1)
+inoremap <buffer> <expr>  viki#ExprMarkInexistentInElement('ParagraphVisible','')
+inoremap <buffer> <expr>   viki#ExprMarkInexistentInElement('LineQuick',' ')
+inoremap <buffer> <expr> ! viki#ExprMarkInexistentInElement('LineQuick','!')
+inoremap <buffer> <expr> " viki#ExprMarkInexistentInElement('LineQuick','"')
+inoremap <buffer> <expr> ' viki#ExprMarkInexistentInElement('LineQuick','''')
+inoremap <buffer> <expr> ) viki#ExprMarkInexistentInElement('LineQuick',')')
+inoremap <buffer> <expr> , viki#ExprMarkInexistentInElement('LineQuick',',')
+inoremap <buffer> <expr> . viki#ExprMarkInexistentInElement('LineQuick','.')
+inoremap <buffer> <expr> : viki#ExprMarkInexistentInElement('LineQuick',':')
+inoremap <buffer> <expr> ; viki#ExprMarkInexistentInElement('LineQuick',';')
+inoremap <buffer> <expr> ? viki#ExprMarkInexistentInElement('LineQuick','?')
+inoremap <buffer> <expr> ] viki#ExprMarkInexistentInElement('LineQuick',']')
+let &cpo=s:cpo_save
+unlet s:cpo_save
+setlocal keymap=
+setlocal noarabic
+setlocal autoindent
+setlocal nobinary
+setlocal bufhidden=
+setlocal buflisted
+setlocal buftype=
+setlocal nocindent
+setlocal cinkeys=0{,0},0),:,0#,!^F,o,O,e
+setlocal cinoptions=
+setlocal cinwords=if,else,while,do,for,switch
+setlocal colorcolumn=
+setlocal comments=s1:/*,mb:*,ex:*/,://,b:#,:%,:XCOMM,n:>,fb:-
+setlocal commentstring=/*%s*/
+setlocal complete=.,w,b,u,t,i
+setlocal concealcursor=n
+setlocal conceallevel=2
+setlocal completefunc=
+setlocal nocopyindent
+setlocal cryptmethod=
+setlocal nocursorbind
+setlocal nocursorcolumn
+setlocal nocursorline
+setlocal define=
+setlocal dictionary=
+setlocal nodiff
+setlocal equalprg=
+setlocal errorformat=
+setlocal expandtab
+if &filetype != 'viki'
+setlocal filetype=viki
+endif
+setlocal foldcolumn=0
+setlocal foldenable
+setlocal foldexpr=0
+setlocal foldignore=#
+setlocal foldlevel=0
+setlocal foldmarker={{{,}}}
+setlocal foldmethod=manual
+setlocal foldminlines=1
+setlocal foldnestmax=20
+setlocal foldtext=foldtext()
+setlocal formatexpr=
+setlocal formatoptions=tcq
+setlocal formatlistpat=^\\s*\\d\\+[\\]:.)}\\t\ ]\\s*
+setlocal grepprg=
+setlocal iminsert=0
+setlocal imsearch=0
+setlocal include=
+setlocal includeexpr=
+setlocal indentexpr=
+setlocal indentkeys=0{,0},:,0#,!^F,o,O,e
+setlocal noinfercase
+setlocal iskeyword=@,48-57,_,192-255
+setlocal keywordprg=
+setlocal nolinebreak
+setlocal nolisp
+setlocal nolist
+setlocal makeprg=
+setlocal matchpairs=(:),{:},[:]
+setlocal modeline
+setlocal modifiable
+setlocal nrformats=octal,hex
+setlocal number
+setlocal numberwidth=4
+setlocal omnifunc=
+setlocal path=
+setlocal nopreserveindent
+setlocal nopreviewwindow
+setlocal quoteescape=\\
+setlocal noreadonly
+setlocal norelativenumber
+setlocal norightleft
+setlocal rightleftcmd=search
+setlocal noscrollbind
+setlocal shiftwidth=4
+setlocal noshortname
+setlocal nosmartindent
+setlocal softtabstop=0
+setlocal nospell
+setlocal spellcapcheck=[.?!]\\_[\\])'\"\	\ ]\\+
+setlocal spellfile=
+setlocal spelllang=en
+setlocal statusline=
+setlocal suffixesadd=.viki
+setlocal swapfile
+setlocal synmaxcol=3000
+if &syntax != 'viki'
+setlocal syntax=viki
+endif
+setlocal tabstop=4
+setlocal tags=
+setlocal textwidth=0
+setlocal thesaurus=
+setlocal noundofile
+setlocal nowinfixheight
+setlocal nowinfixwidth
+setlocal wrap
+setlocal wrapmargin=0
+silent! normal! zE
+let s:l = 1 - ((0 * winheight(0) + 17) / 34)
+if s:l < 1 | let s:l = 1 | endif
+exe s:l
+normal! zt
+1
+normal! 014|
+let &so = s:so_save | let &siso = s:siso_save
+doautoall SessionLoadPost
+" vim: set ft=vim :
